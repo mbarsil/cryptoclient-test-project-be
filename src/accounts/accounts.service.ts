@@ -21,6 +21,4 @@ export class AccountsService {
 
     return this.accounts.find((account: Account) => account.id === Number(id));
   }
-
-
 }
