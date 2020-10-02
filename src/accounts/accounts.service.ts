@@ -1,13 +1,26 @@
 import { Injectable } from '@nestjs/common';
 
-import { Account } from '../shared/common.constant';
-import { ACCOUNT_DATA } from './data';
+import { Account, ExchangeRate } from './account.model';
+import { ACCOUNT_DATA, EXCHANGE_RATE } from './data';
 
 @Injectable()
 export class AccountsService {
-  private _accounts = ACCOUNT_DATA;
+  private accounts: Account[] = ACCOUNT_DATA;
+  private exchangeRate: ExchangeRate = EXCHANGE_RATE;
 
-  get accounts(): Account[] {
-    return this._accounts;
+  getExchangeRate(): ExchangeRate {
+    return this.exchangeRate;
   }
+
+  getAllAccounts(): Account[] {
+    return this.accounts;
+  }
+
+  getAccountById(id: string): Account {
+    if (!id) { return; }
+
+    return this.accounts.find((account: Account) => account.id === Number(id));
+  }
+
+
 }

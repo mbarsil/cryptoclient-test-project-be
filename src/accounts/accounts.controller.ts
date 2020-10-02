@@ -1,7 +1,7 @@
-import { Controller, Get } from '@nestjs/common';
+import { Controller, Get, Param } from '@nestjs/common';
 
 import { AccountsService } from './accounts.service';
-import { Account } from '../shared/common.constant';
+import { Account, ExchangeRate } from './account.model';
 
 @Controller('accounts')
 export class AccountsController {
@@ -10,7 +10,17 @@ export class AccountsController {
   ) {}
 
   @Get()
+  getExchangeRate(): ExchangeRate {
+    return this.accountsService.getExchangeRate();
+  }
+
+  @Get()
   getAllAccounts(): Account[] {
-    return this.accountsService.accounts;
+    return this.accountsService.getAllAccounts();
+  }
+
+  @Get('/:id')
+  getAccountById(@Param('id') id: string): Account {
+    return this.accountsService.getAccountById(id);
   }
 }
