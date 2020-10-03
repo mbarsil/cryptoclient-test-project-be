@@ -35,7 +35,7 @@ export class AccountsService {
   }
 
   getRandomeValue(originalValue: number): number {
-    // Random values between 0.5 and 1.5
-    return originalValue * (Math.random() * 1 + 0.5);
+    // Random values between 0.8 and 1.2
+    return originalValue * (Math.random() * 0.4 + 0.8);
   }
 }

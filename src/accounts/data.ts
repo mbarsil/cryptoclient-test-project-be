@@ -7,7 +7,7 @@ export const ACCOUNT_DATA: Account[] = [
     id: 1,
     name: 'Main account',
     category: 'personal',
-    tag: 'regular',
+    tag: 'active',
     balance: 1.23,
     availableBalance: 1.00
   },
@@ -15,7 +15,7 @@ export const ACCOUNT_DATA: Account[] = [
     id: 2,
     name: 'Payslip account',
     category: 'payslip',
-    tag: 'work',
+    tag: 'shared',
     balance: 1.14,
     availableBalance: 1.02
   },
@@ -23,7 +23,7 @@ export const ACCOUNT_DATA: Account[] = [
     id: 3,
     name: 'Investment account',
     category: 'stockmarket',
-    tag: 'risky',
+    tag: 'frozen',
     balance: 1.213,
     availableBalance: 1.0
   },
@@ -31,7 +31,7 @@ export const ACCOUNT_DATA: Account[] = [
     id: 4,
     name: 'Main account',
     category: 'personal',
-    tag: 'regular',
+    tag: 'active',
     balance: 1.23,
     availableBalance: 0.9
   },
@@ -39,7 +39,7 @@ export const ACCOUNT_DATA: Account[] = [
     id: 5,
     name: 'Payslip account',
     category: 'payslip',
-    tag: 'work',
+    tag: 'shared',
     balance: 1.14,
     availableBalance: 1.02
   },
@@ -47,7 +47,7 @@ export const ACCOUNT_DATA: Account[] = [
     id: 6,
     name: 'Investment account',
     category: 'stockmarket',
-    tag: 'risky',
+    tag: 'frozen',
     balance: 1.21,
     availableBalance: 1.01
   },
@@ -55,7 +55,7 @@ export const ACCOUNT_DATA: Account[] = [
     id: 7,
     name: 'Main account',
     category: 'personal',
-    tag: 'regular',
+    tag: 'active',
     balance: 0.81,
     availableBalance: 0.81
   },
@@ -63,7 +63,7 @@ export const ACCOUNT_DATA: Account[] = [
     id: 8,
     name: 'Payslip account',
     category: 'payslip',
-    tag: 'work',
+    tag: 'shared',
     balance: 0.71,
     availableBalance: 0.5
   },
@@ -71,7 +71,7 @@ export const ACCOUNT_DATA: Account[] = [
     id: 9,
     name: 'Investment account',
     category: 'stockmarket',
-    tag: 'risky',
+    tag: 'frozen',
     balance: 0.99,
     availableBalance: 0.55
   },
@@ -79,7 +79,7 @@ export const ACCOUNT_DATA: Account[] = [
     id: 10,
     name: 'Main account',
     category: 'personal',
-    tag: 'regular',
+    tag: 'active',
     balance: 1.23,
     availableBalance: 1.11
   },
@@ -87,7 +87,7 @@ export const ACCOUNT_DATA: Account[] = [
     id: 11,
     name: 'Payslip account',
     category: 'payslip',
-    tag: 'work',
+    tag: 'shared',
     balance: 1.3,
     availableBalance: 1.02
   },
@@ -95,7 +95,7 @@ export const ACCOUNT_DATA: Account[] = [
     id: 12,
     name: 'Investment account',
     category: 'stockmarket',
-    tag: 'risky',
+    tag: 'frozen',
     balance: 0.213,
     availableBalance: 0.1
   },
@@ -103,7 +103,7 @@ export const ACCOUNT_DATA: Account[] = [
     id: 13,
     name: 'Main account',
     category: 'personal',
-    tag: 'regular',
+    tag: 'active',
     balance: 0.12,
     availableBalance: 0.01
   },
@@ -111,7 +111,7 @@ export const ACCOUNT_DATA: Account[] = [
     id: 14,
     name: 'Payslip account',
     category: 'payslip',
-    tag: 'work',
+    tag: 'shared',
     balance: 1.7,
     availableBalance: 1.6
   },
@@ -119,7 +119,7 @@ export const ACCOUNT_DATA: Account[] = [
     id: 15,
     name: 'Investment account',
     category: 'stockmarket',
-    tag: 'risky',
+    tag: 'frozen',
     balance: 1.11,
     availableBalance: 1.07
   }
