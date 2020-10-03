@@ -3,9 +3,6 @@ import { Injectable } from '@nestjs/common';
 import { Account } from './account.model';
 import { ACCOUNT_DATA, EXCHANGE_RATE } from './data';
 
-const VARIATION_MAX_THRESHOLD = 1;
-const VARIATION_MIN_THRESHOLD = 0.5;
-
 @Injectable()
 export class AccountsService {
   private accounts: Account[] = ACCOUNT_DATA;
@@ -18,6 +15,16 @@ export class AccountsService {
   }
 
   getAllAccounts(): Account[] {
+    this.accounts = this.accounts.map((account: Account) => {
+      const newBalance = this.getRandomeValue(account.balance);
+
+      return {
+        ...account,
+        balance: newBalance,
+        availableBalance: newBalance - newBalance / 10
+      }
+    });
+
     return this.accounts;
   }
 
@@ -27,7 +34,8 @@ export class AccountsService {
     return this.accounts.find((account: Account) => account.id === Number(id));
   }
 
-  private getRandomeValue(originalValue: number): number {
-    return originalValue * (Math.random() * (VARIATION_MAX_THRESHOLD - VARIATION_MIN_THRESHOLD) + VARIATION_MAX_THRESHOLD);
+  getRandomeValue(originalValue: number): number {
+    // Random values between 0.5 and 1.5
+    return originalValue * (Math.random() * 1 + 0.5);
   }
 }
