@@ -1,7 +1,7 @@
 import { Controller, Get, Param } from '@nestjs/common';
 
 import { AccountsService } from './accounts.service';
-import { Account, ExchangeRate } from './account.model';
+import { Account } from './account.model';
 
 @Controller('accounts')
 export class AccountsController {
@@ -10,7 +10,7 @@ export class AccountsController {
   ) {}
 
   @Get()
-  getExchangeRate(): ExchangeRate {
+  getExchangeRate(): number {
     return this.accountsService.getExchangeRate();
   }
 

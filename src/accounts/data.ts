@@ -1,8 +1,6 @@
-import { Account, ExchangeRate } from './account.model';
+import { Account } from './account.model';
 
-export const EXCHANGE_RATE: ExchangeRate = {
-  rate: 9879.2
-};
+export const EXCHANGE_RATE = 9879.2;
 
 export const ACCOUNT_DATA: Account[] = [
   {

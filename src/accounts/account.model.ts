@@ -7,6 +7,3 @@ export interface Account {
   availableBalance: number;
 }
 
-export interface ExchangeRate {
-  rate: number;
-}
