@@ -23,7 +23,7 @@ export class AccountsGateway implements OnGatewayConnection, OnGatewayDisconnect
     this.initExchangeRatePush();
   }
 
-  async handleDisconnect(){
+  async handleDisconnect() {
     console.log('[INFO] ===> Connection closed by client');
   }
 

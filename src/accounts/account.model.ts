@@ -6,4 +6,3 @@ export interface Account {
   balance: number;
   availableBalance: number;
 }
-
