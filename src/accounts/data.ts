@@ -1,6 +1,5 @@
 import { Account } from './account.model';
 
-// eslint-disable-next-line @typescript-eslint/no-var-requires
 const uniqid = require('uniqid');
 const moment = require('moment');
 

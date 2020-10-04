@@ -40,7 +40,7 @@ export class AccountsGateway implements OnGatewayConnection, OnGatewayDisconnect
   }
 
   @SubscribeMessage(ACCOUNT_DETAIL_CHANNEL)
-  async onRequestAccountDetail(client: Socket, id: number){
+  async onRequestAccountDetail(client: Socket, id: number) {
     console.log(`[INFO] ===> Received message in channel ${ACCOUNT_DETAIL_CHANNEL} for account ${id}`);
     this.accountsService
       .getUpdatedAccountSubscription()

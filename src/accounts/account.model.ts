@@ -13,5 +13,5 @@ export interface Transaction {
   confirmedDate: string;
   type: string;
   credit: number;
-  balance: number
+  balance: number;
 }

@@ -1,7 +1,6 @@
 import { Injectable } from '@nestjs/common';
 
 import { BehaviorSubject } from 'rxjs';
-// eslint-disable-next-line @typescript-eslint/no-var-requires
 const uniqid = require('uniqid');
 const moment = require('moment');
 
@@ -54,6 +53,7 @@ export class AccountsService {
       return originalValue * (Math.random() * 2 - 0.8);
     }
     // Random values between 0.8 and 1.2
+
     return originalValue * (Math.random() * 0.7 + 0.8);
   }
 
@@ -70,6 +70,6 @@ export class AccountsService {
       type: TRANSACTION_TYPE[Math.floor(Math.random() * TRANSACTION_TYPE.length)],
       credit: transactionCredit,
       balance: account.balance - transactionCredit
-    }
+    };
   }
 }
