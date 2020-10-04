@@ -35,7 +35,7 @@
     "moment": "^2.29.0",
     "reflect-metadata": "^0.1.13",
     "rimraf": "^3.0.2",
-    "rxjs": "^6.5.4",
+    "rxjs": "^6.6.3",
     "uniqid": "^5.2.0"
   },
   "devDependencies": {

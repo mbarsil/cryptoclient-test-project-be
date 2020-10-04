@@ -1,5 +1,6 @@
 import { Injectable } from '@nestjs/common';
 
+import { BehaviorSubject } from 'rxjs';
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const uniqid = require('uniqid');
 const moment = require('moment');
@@ -10,6 +11,7 @@ import { TRANSACTION_TYPE } from './accounts.constant';
 
 @Injectable()
 export class AccountsService {
+  private updatedAccountSubject$: BehaviorSubject<Account> = new BehaviorSubject<Account>(null);
   private accounts: Account[] = ACCOUNT_DATA;
   private exchangeRate: number = EXCHANGE_RATE;
 
@@ -29,10 +31,12 @@ export class AccountsService {
           (acc, curr) => acc + curr.credit,
           account.balance
         );
+
+        this.updatedAccountSubject$.next(account);
         console.log('[INFO] ===> Pushing new account balance');
       }
 
-      return account
+      return account;
     });
 
     return this.accounts;
@@ -51,6 +55,10 @@ export class AccountsService {
     }
     // Random values between 0.8 and 1.2
     return originalValue * (Math.random() * 0.7 + 0.8);
+  }
+
+  getUpdatedAccountSubscription(): BehaviorSubject<Account> {
+    return this.updatedAccountSubject$;
   }
 
   private generateNewTransaction(account: Account): Transaction {

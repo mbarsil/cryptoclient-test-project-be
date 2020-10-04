@@ -1,16 +1,22 @@
 import {
   OnGatewayConnection,
   OnGatewayDisconnect,
+  SubscribeMessage,
   WebSocketGateway,
   WebSocketServer,
 } from '@nestjs/websockets';
 
-import { AccountsService } from './accounts.service';
+import { Socket } from 'socket.io';
 import Timeout = NodeJS.Timeout;
 
-const BITCOIN_RATE_CHANNEL = 'bitcoinRate';
-const ACCOUNTS_BALANCE_CHANNEL = 'accountsBalance';
-const EXCHANGE_RATE_PUSH_INTERVAL = 1500;
+import { AccountsService } from './accounts.service';
+import { Account } from './account.model';
+import {
+  ACCOUNT_DETAIL_CHANNEL,
+  ACCOUNTS_BALANCE_CHANNEL,
+  BITCOIN_RATE_CHANNEL,
+  EXCHANGE_RATE_PUSH_INTERVAL,
+} from './accounts.constant';
 
 @WebSocketGateway()
 export class AccountsGateway implements OnGatewayConnection, OnGatewayDisconnect {
@@ -31,6 +37,19 @@ export class AccountsGateway implements OnGatewayConnection, OnGatewayDisconnect
   async handleDisconnect() {
     console.log('[INFO] ===> Connection closed by client');
     clearTimeout(this.timer);
+  }
+
+  @SubscribeMessage(ACCOUNT_DETAIL_CHANNEL)
+  async onRequestAccountDetail(client: Socket, id: number){
+    console.log(`[INFO] ===> Received message in channel ${ACCOUNT_DETAIL_CHANNEL} for account ${id}`);
+    this.accountsService
+      .getUpdatedAccountSubscription()
+      .subscribe((account: Account) => {
+        if (account.id === id) {
+          console.log('[INFO] ===> Pushing new account detail for account with id ', id);
+          this.server.emit(ACCOUNT_DETAIL_CHANNEL, account);
+        }
+      });
   }
 
   private initExchangeRatePush(): void {
