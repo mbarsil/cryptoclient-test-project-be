@@ -1,5 +1,9 @@
 import { Account } from './account.model';
 
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+const uniqid = require('uniqid');
+const moment = require('moment');
+
 export const EXCHANGE_RATE = 9879.2;
 
 export const ACCOUNT_DATA: Account[] = [
@@ -9,7 +13,16 @@ export const ACCOUNT_DATA: Account[] = [
     category: 'personal',
     tag: 'active',
     balance: 1.23,
-    availableBalance: 1.00
+    availableBalance: 1.00,
+    transactions: [
+      {
+        id: uniqid(),
+        confirmedDate: `${moment().format('l')}  ${moment().format('H:mm')}`,
+        type: 'settlement',
+        credit: 0.1,
+        balance: 0.9
+      }
+    ]
   },
   {
     id: 2,
@@ -17,7 +30,16 @@ export const ACCOUNT_DATA: Account[] = [
     category: 'payslip',
     tag: 'shared',
     balance: 1.14,
-    availableBalance: 1.02
+    availableBalance: 1.02,
+    transactions: [
+      {
+        id: uniqid(),
+        confirmedDate: `${moment().format('l')}  ${moment().format('H:mm')}`,
+        type: 'settlement',
+        credit: 0.1,
+        balance: 0.9
+      }
+    ]
   },
   {
     id: 3,
@@ -25,7 +47,16 @@ export const ACCOUNT_DATA: Account[] = [
     category: 'stockmarket',
     tag: 'frozen',
     balance: 1.213,
-    availableBalance: 1.0
+    availableBalance: 1.0,
+    transactions: [
+      {
+        id: uniqid(),
+        confirmedDate: `${moment().format('l')}  ${moment().format('H:mm')}`,
+        type: 'settlement',
+        credit: 0.1,
+        balance: 0.9
+      }
+    ]
   },
   {
     id: 4,
@@ -33,7 +64,16 @@ export const ACCOUNT_DATA: Account[] = [
     category: 'personal',
     tag: 'active',
     balance: 1.23,
-    availableBalance: 0.9
+    availableBalance: 0.9,
+    transactions: [
+      {
+        id: uniqid(),
+        confirmedDate: `${moment().format('l')}  ${moment().format('H:mm')}`,
+        type: 'settlement',
+        credit: 0.1,
+        balance: 0.9
+      }
+    ]
   },
   {
     id: 5,
@@ -41,7 +81,16 @@ export const ACCOUNT_DATA: Account[] = [
     category: 'payslip',
     tag: 'shared',
     balance: 1.14,
-    availableBalance: 1.02
+    availableBalance: 1.02,
+    transactions: [
+      {
+        id: uniqid(),
+        confirmedDate: `${moment().format('l')}  ${moment().format('H:mm')}`,
+        type: 'settlement',
+        credit: 0.1,
+        balance: 0.9
+      }
+    ]
   },
   {
     id: 6,
@@ -49,7 +98,16 @@ export const ACCOUNT_DATA: Account[] = [
     category: 'stockmarket',
     tag: 'frozen',
     balance: 1.21,
-    availableBalance: 1.01
+    availableBalance: 1.01,
+    transactions: [
+      {
+        id: uniqid(),
+        confirmedDate: `${moment().format('l')}  ${moment().format('H:mm')}`,
+        type: 'settlement',
+        credit: 0.1,
+        balance: 0.9
+      }
+    ]
   },
   {
     id: 7,
@@ -57,7 +115,16 @@ export const ACCOUNT_DATA: Account[] = [
     category: 'personal',
     tag: 'active',
     balance: 0.81,
-    availableBalance: 0.81
+    availableBalance: 0.81,
+    transactions: [
+      {
+        id: uniqid(),
+        confirmedDate: `${moment().format('l')}  ${moment().format('H:mm')}`,
+        type: 'settlement',
+        credit: 0.1,
+        balance: 0.9
+      }
+    ]
   },
   {
     id: 8,
@@ -65,7 +132,16 @@ export const ACCOUNT_DATA: Account[] = [
     category: 'payslip',
     tag: 'shared',
     balance: 0.71,
-    availableBalance: 0.5
+    availableBalance: 0.5,
+    transactions: [
+      {
+        id: uniqid(),
+        confirmedDate: `${moment().format('l')}  ${moment().format('H:mm')}`,
+        type: 'settlement',
+        credit: 0.1,
+        balance: 0.9
+      }
+    ]
   },
   {
     id: 9,
@@ -73,7 +149,16 @@ export const ACCOUNT_DATA: Account[] = [
     category: 'stockmarket',
     tag: 'frozen',
     balance: 0.99,
-    availableBalance: 0.55
+    availableBalance: 0.55,
+    transactions: [
+      {
+        id: uniqid(),
+        confirmedDate: `${moment().format('l')}  ${moment().format('H:mm')}`,
+        type: 'settlement',
+        credit: 0.1,
+        balance: 0.9
+      }
+    ]
   },
   {
     id: 10,
@@ -81,7 +166,16 @@ export const ACCOUNT_DATA: Account[] = [
     category: 'personal',
     tag: 'active',
     balance: 1.23,
-    availableBalance: 1.11
+    availableBalance: 1.11,
+    transactions: [
+      {
+        id: uniqid(),
+        confirmedDate: `${moment().format('l')}  ${moment().format('H:mm')}`,
+        type: 'settlement',
+        credit: 0.1,
+        balance: 0.9
+      }
+    ]
   },
   {
     id: 11,
@@ -89,7 +183,16 @@ export const ACCOUNT_DATA: Account[] = [
     category: 'payslip',
     tag: 'shared',
     balance: 1.3,
-    availableBalance: 1.02
+    availableBalance: 1.02,
+    transactions: [
+      {
+        id: uniqid(),
+        confirmedDate: `${moment().format('l')}  ${moment().format('H:mm')}`,
+        type: 'settlement',
+        credit: 0.1,
+        balance: 0.9
+      }
+    ]
   },
   {
     id: 12,
@@ -97,7 +200,16 @@ export const ACCOUNT_DATA: Account[] = [
     category: 'stockmarket',
     tag: 'frozen',
     balance: 0.213,
-    availableBalance: 0.1
+    availableBalance: 0.1,
+    transactions: [
+      {
+        id: uniqid(),
+        confirmedDate: `${moment().format('l')}  ${moment().format('H:mm')}`,
+        type: 'settlement',
+        credit: 0.1,
+        balance: 0.9
+      }
+    ]
   },
   {
     id: 13,
@@ -105,7 +217,16 @@ export const ACCOUNT_DATA: Account[] = [
     category: 'personal',
     tag: 'active',
     balance: 0.12,
-    availableBalance: 0.01
+    availableBalance: 0.01,
+    transactions: [
+      {
+        id: uniqid(),
+        confirmedDate: `${moment().format('l')}  ${moment().format('H:mm')}`,
+        type: 'settlement',
+        credit: 0.1,
+        balance: 0.9
+      }
+    ]
   },
   {
     id: 14,
@@ -113,7 +234,16 @@ export const ACCOUNT_DATA: Account[] = [
     category: 'payslip',
     tag: 'shared',
     balance: 1.7,
-    availableBalance: 1.6
+    availableBalance: 1.6,
+    transactions: [
+      {
+        id: uniqid(),
+        confirmedDate: `${moment().format('l')}  ${moment().format('H:mm')}`,
+        type: 'settlement',
+        credit: 0.1,
+        balance: 0.9
+      }
+    ]
   },
   {
     id: 15,
@@ -121,6 +251,15 @@ export const ACCOUNT_DATA: Account[] = [
     category: 'stockmarket',
     tag: 'frozen',
     balance: 1.11,
-    availableBalance: 1.07
+    availableBalance: 1.07,
+    transactions: [
+      {
+        id: uniqid(),
+        confirmedDate: `${moment().format('l')}  ${moment().format('H:mm')}`,
+        type: 'settlement',
+        credit: 0.1,
+        balance: 0.9
+      }
+    ]
   }
 ];

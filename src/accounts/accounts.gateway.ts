@@ -10,7 +10,7 @@ import Timeout = NodeJS.Timeout;
 
 const BITCOIN_RATE_CHANNEL = 'bitcoinRate';
 const ACCOUNTS_BALANCE_CHANNEL = 'accountsBalance';
-const EXCHANGE_RATE_PUSH_INTERVAL = 15000;
+const EXCHANGE_RATE_PUSH_INTERVAL = 1500;
 
 @WebSocketGateway()
 export class AccountsGateway implements OnGatewayConnection, OnGatewayDisconnect {
@@ -44,7 +44,6 @@ export class AccountsGateway implements OnGatewayConnection, OnGatewayDisconnect
   }
 
   private initAccountBalancePush(): void {
-    console.log('[INFO] ===> Pushing new account balance');
     this.server.emit(ACCOUNTS_BALANCE_CHANNEL, this.accountsService.getAllAccounts());
 
     this.timer = setTimeout(

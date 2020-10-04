@@ -1,7 +1,12 @@
 import { Injectable } from '@nestjs/common';
 
-import { Account } from './account.model';
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+const uniqid = require('uniqid');
+const moment = require('moment');
+
+import { Account, Transaction } from './account.model';
 import { ACCOUNT_DATA, EXCHANGE_RATE } from './data';
+import { TRANSACTION_TYPE } from './accounts.constant';
 
 @Injectable()
 export class AccountsService {
@@ -16,13 +21,18 @@ export class AccountsService {
 
   getAllAccounts(): Account[] {
     this.accounts = this.accounts.map((account: Account) => {
-      const newBalance = this.getRandomeValue(account.balance);
+      const addTransaction = Math.random() < 0.5;
 
-      return {
-        ...account,
-        balance: newBalance,
-        availableBalance: newBalance - newBalance / 10
+      if (addTransaction) {
+        account.transactions.push(this.generateNewTransaction(account));
+        account.balance = account.transactions.reduce(
+          (acc, curr) => acc + curr.credit,
+          account.balance
+        );
+        console.log('[INFO] ===> Pushing new account balance');
       }
+
+      return account
     });
 
     return this.accounts;
@@ -34,8 +44,24 @@ export class AccountsService {
     return this.accounts.find((account: Account) => account.id === Number(id));
   }
 
-  getRandomeValue(originalValue: number): number {
+  getRandomeValue(originalValue: number, includeNegatives = false): number {
+    // Random values between -0.8 and 1.2
+    if (includeNegatives) {
+      return originalValue * (Math.random() * 2 - 0.8);
+    }
     // Random values between 0.8 and 1.2
-    return originalValue * (Math.random() * 0.4 + 0.8);
+    return originalValue * (Math.random() * 0.7 + 0.8);
+  }
+
+  private generateNewTransaction(account: Account): Transaction {
+    const transactionCredit = this.getRandomeValue(1, true);
+
+    return {
+      id: uniqid(),
+      confirmedDate: `${moment().format('l')}  ${moment().format('H:mm')}`,
+      type: TRANSACTION_TYPE[Math.floor(Math.random() * TRANSACTION_TYPE.length)],
+      credit: transactionCredit,
+      balance: account.balance - transactionCredit
+    }
   }
 }
