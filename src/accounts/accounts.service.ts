@@ -10,7 +10,7 @@ import { TRANSACTION_TYPE } from './accounts.constant';
 
 @Injectable()
 export class AccountsService {
-  private updatedAccountSubject$: BehaviorSubject<Account> = new BehaviorSubject<Account>(null);
+  private updatedAccountSubject$ = new BehaviorSubject<Account>(null);
   private accounts: Account[] = ACCOUNT_DATA;
   private exchangeRate: number = EXCHANGE_RATE;
 
@@ -31,7 +31,10 @@ export class AccountsService {
           account.balance
         );
 
-        this.updatedAccountSubject$.next(account);
+        if (this.updatedAccountSubject$) {
+          this.updatedAccountSubject$.next(account);
+        }
+
         console.log('[INFO] ===> Pushing new account balance');
       }
 
@@ -58,7 +61,16 @@ export class AccountsService {
   }
 
   getUpdatedAccountSubscription(): BehaviorSubject<Account> {
+    this.updatedAccountSubject$ = null;
+    this.updatedAccountSubject$ = new BehaviorSubject<Account>(null);
+
     return this.updatedAccountSubject$;
+  }
+
+  stopUpdatedAccountSubscription(): void {
+    this.updatedAccountSubject$.complete();
+
+    this.updatedAccountSubject$ = null;
   }
 
   private generateNewTransaction(account: Account): Transaction {
