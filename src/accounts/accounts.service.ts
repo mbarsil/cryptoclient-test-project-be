@@ -31,7 +31,7 @@ export class AccountsService {
           account.balance
         );
 
-        if(this.updatedAccountSubject$) {
+        if (this.updatedAccountSubject$) {
           this.updatedAccountSubject$.next(account);
         }
 
