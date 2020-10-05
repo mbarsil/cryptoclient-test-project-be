@@ -5,4 +5,5 @@ export const TRANSACTION_TYPE = ['Settlement', 'On Ramp', 'Deposit'];
 export const BITCOIN_RATE_CHANNEL = 'bitcoinRate';
 export const ACCOUNTS_BALANCE_CHANNEL = 'accountsBalance';
 export const ACCOUNT_DETAIL_CHANNEL = 'accountDetail';
+export const ACCOUNT_DETAIL_STOP_CHANNEL = 'accountDetailStop';
 export const EXCHANGE_RATE_PUSH_INTERVAL = 15000;
