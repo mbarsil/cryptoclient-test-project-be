@@ -1,4 +1,4 @@
-# TechnestTestFrontend
+# Crypto client test project
 
 ## Acknowledgements
 For this project, the following graphic resources have been used:
