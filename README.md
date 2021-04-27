@@ -1,4 +1,4 @@
-# Crypto client test project
+# Crypto client test project (server)
 
 ## Acknowledgements
 For this project, the following graphic resources have been used:
